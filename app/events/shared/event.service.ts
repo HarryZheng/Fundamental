@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
-import { Subject } from "rxjs/Subject";
+import { Subject } from "rxjs/RX"
 
 @Injectable()
 export class EventService{
     getEvents(){
         let subject = new Subject()
-        setTimeout(() => {subject.next(Events); subject.complete()},100)
+        setTimeout(() => {subject.next(Events); subject.complete(); } ,100)
         return subject
     }
     getEvent(id:number){
@@ -21,7 +21,6 @@ const Events = [
       time: '10:00 am',
       price: 599.99,
       imageUrl: '/app/assets/images/angularconnect-shield.png',
-      //onlineUrl: 'http://here.map.google.com',
        location: {
          address: '1057 DT',
          city: 'London',
