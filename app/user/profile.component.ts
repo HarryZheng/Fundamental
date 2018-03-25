@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
   templateUrl: 'app/user/profile.component.html'
 })
 export class ProfileComponent implements OnInit{
-  profileFormGroup: FormGroup;  
+  profileFormGroup: FormGroup; 
+
   constructor(private authService:AuthService, private router:Router){
   }
-
   ngOnInit(){
     let firstName = new FormControl(this.authService.currentUser.firstName)
     let lastName = new FormControl(this.authService.currentUser.lastName)
@@ -19,8 +19,8 @@ export class ProfileComponent implements OnInit{
       lastName : lastName
     })
   }   
-  saveProfile(formValuves){
-    this.authService.updateCurrentUser(formValuves.firstName, formValuves.lastName);    
+  saveProfile(formValues){
+    this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);    
     this.router.navigate(['events'])
   }
   cancel(){
