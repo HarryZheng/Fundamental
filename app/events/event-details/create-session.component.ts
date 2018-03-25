@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Validators, FormControl, FormGroup } from "@angular/forms";
-import { ISession } from "..";
 
 @Component({
     templateUrl: '/app/events/event-details/create-session.component.html',
@@ -10,7 +9,7 @@ import { ISession } from "..";
     .error ::-webkit-input-placeholder {color:#999}
   `]
 })
-export class createSessionComponent implements OnInit{
+export class CreateSessionComponent implements OnInit{
     newSessionForm: FormGroup
     name: FormControl
     presenter: FormControl

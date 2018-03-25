@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   `]
 })
 export class ProfileComponent implements OnInit{
-  profileForm: FormGroup; 
+  profileForm: FormGroup
   private firstName:FormControl
   private lastName:FormControl
 
