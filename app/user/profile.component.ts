@@ -1,29 +1,45 @@
 import { Component, OnInit } from '@angular/core'
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  templateUrl: 'app/user/profile.component.html'
+  templateUrl: 'app/user/profile.component.html',
+  styles:[`
+    em {float:right; color:red; padding-left:10px;}
+    .error input {backgroup-color:#E3C3C5;}
+    .error ::-webkit-input-placeholder {color:#999}
+  `]
 })
 export class ProfileComponent implements OnInit{
-  profileFormGroup: FormGroup; 
+  profileForm: FormGroup; 
+  private firstName:FormControl
+  private lastName:FormControl
 
   constructor(private authService:AuthService, private router:Router){
   }
   ngOnInit(){
-    let firstName = new FormControl(this.authService.currentUser.firstName)
-    let lastName = new FormControl(this.authService.currentUser.lastName)
-    this.profileFormGroup = new FormGroup({
-      firstName: firstName,
-      lastName : lastName
+    this.firstName = new FormControl(this.authService.currentUser.firstName,
+        [Validators.required, Validators.pattern('[a-zA-Z].*')])
+    this.lastName = new FormControl(this.authService.currentUser.lastName,Validators.required)
+    this.profileForm = new FormGroup({
+      firstName: this.firstName,
+      lastName : this.lastName
     })
   }   
   saveProfile(formValues){
-    this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);    
-    this.router.navigate(['events'])
+    if(this.profileForm.valid){
+      this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);    
+      this.router.navigate(['events'])
+     }
   }
   cancel(){
     this.router.navigate(['events'])
+  }
+  validatefirstName(){
+    return this.firstName.valid || this.firstName.untouched 
+  }
+  validatelastName(){
+    return this.lastName.valid || this.lastName.untouched 
   }
 }

@@ -1,2 +1,5 @@
 export * from './profile.component'
 export * from './user.module'
+export * from './auth.service'
+export * from './login.component'
+export * from './user.module'
