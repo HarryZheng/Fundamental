@@ -6,9 +6,9 @@ import { IEvent, ISession } from "../shared/event.model";
 @Component({
     templateUrl: '/app/events/event-details/event-details.component.html',
     styles:[`
-        .container { padding-left:20px; padding-right:20px; },
-        .event-image { height: 200px;},
-        a {cursor:pointer}
+        .container { padding-left:20px; padding-right:20px; }
+        .event-image { height:100px; }
+        a { cursor: pointer}
     `]
 
 })
