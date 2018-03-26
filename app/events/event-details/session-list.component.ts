@@ -1,18 +1,19 @@
-import { Component, Input, OnChanges } from "@angular/core";
+import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 import { ISession } from "../shared/event.model";
-import { IsEmptySignature } from "rxjs/operator/isEmpty";
+
 
 @Component({
     selector: 'session-list',
     templateUrl: 'app/events/event-details/session-list.component.html'
 })
-export class SessionListComponent{
+export class SessionListComponent implements OnChanges{
     @Input() sessions:ISession[]
     @Input() filterBy: string
     @Input() sortBy: string
     visibleSessions: ISession[] = []
 
-    ngOnchange() {
+    ngOnChanges(changes: SimpleChanges) {
+        //console.log(changes)
         if(this.sessions){
             this.filterSessions(this.filterBy);
             this.sortBy === 'name' ? this.visibleSessions.sort(sortByNameAsc) : this.visibleSessions.sort(sortByVotesDsc)
@@ -37,5 +38,5 @@ function sortByNameAsc(s1: ISession, s2: ISession){
 }
 
 function sortByVotesDsc(s1:ISession, s2:ISession){
-    return (s2.voters.length - s2.voters.length)
+    return (s2.voters.length - s1.voters.length)
 }
