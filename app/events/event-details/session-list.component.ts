@@ -13,7 +13,6 @@ export class SessionListComponent implements OnChanges{
     visibleSessions: ISession[] = []
 
     ngOnChanges(changes: SimpleChanges) {
-        //console.log(changes)
         if(this.sessions){
             this.filterSessions(this.filterBy);
             this.sortBy === 'name' ? this.visibleSessions.sort(sortByNameAsc) : this.visibleSessions.sort(sortByVotesDsc)
