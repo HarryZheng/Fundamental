@@ -19,6 +19,7 @@ import { EventListResolver } from './events/events-list-resolver.service';
 import { AuthService } from './user/auth.service';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { DurationPipe } from './events/shared/duration.pip';
+import { upvoteComponent } from './events/event-details/upvote.component';
 
 declare let toastr: Toastr
 
@@ -40,7 +41,8 @@ declare let toastr: Toastr
         SessionListComponent,
         Error404Component,
         CollapsibleWellComponent,
-        DurationPipe
+        upvoteComponent,
+        DurationPipe,
     ],
     providers: [[
         EventService, 
