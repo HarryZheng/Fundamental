@@ -22,6 +22,7 @@ import { DurationPipe } from './events/shared/duration.pip';
 import { JQUERY_TOKEN } from './common/jQuery.service';
 import { SimpleModalComponent } from './common/simpleModal.component';
 import { ModalTriggerDirective } from './common/modalTrigger.directive';
+import { UpvoteComponent } from './events/event-details/upvote.component';
 
 declare let toastr: Toastr
 declare let jQuery: Object
@@ -46,7 +47,8 @@ declare let jQuery: Object
         CollapsibleWellComponent,
         SimpleModalComponent,
         ModalTriggerDirective,
-        DurationPipe
+        UpvoteComponent,
+        DurationPipe,
     ],
     providers: [[
         EventService, 
