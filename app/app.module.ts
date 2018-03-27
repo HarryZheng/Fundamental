@@ -21,6 +21,7 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { DurationPipe } from './events/shared/duration.pip';
 import { JQUERY_TOKEN } from './common/jQuery.service';
 import { SimpleModalComponent } from './common/simpleModal.component';
+import { ModalTriggerDirective } from './common/modalTrigger.directive';
 
 declare let toastr: Toastr
 declare let jQuery: Object
@@ -44,6 +45,7 @@ declare let jQuery: Object
         Error404Component,
         CollapsibleWellComponent,
         SimpleModalComponent,
+        ModalTriggerDirective,
         DurationPipe
     ],
     providers: [[
