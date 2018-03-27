@@ -19,9 +19,16 @@ import { EventListResolver } from './events/events-list-resolver.service';
 import { AuthService } from './user/auth.service';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { DurationPipe } from './events/shared/duration.pip';
+<<<<<<< HEAD
 import { upvoteComponent } from './events/event-details/upvote.component';
+=======
+import { JQUERY_TOKEN } from './common/jQuery.service';
+import { SimpleModalComponent } from './common/simpleModal.component';
+import { ModalTriggerDirective } from './common/modalTrigger.directive';
+>>>>>>> efe1cc5f30e2f7c2023872b3f2ef92f5894e12e1
 
 declare let toastr: Toastr
+declare let jQuery: Object
 
 @NgModule({
     imports: [
@@ -41,13 +48,20 @@ declare let toastr: Toastr
         SessionListComponent,
         Error404Component,
         CollapsibleWellComponent,
+<<<<<<< HEAD
         upvoteComponent,
         DurationPipe,
+=======
+        SimpleModalComponent,
+        ModalTriggerDirective,
+        DurationPipe
+>>>>>>> efe1cc5f30e2f7c2023872b3f2ef92f5894e12e1
     ],
     providers: [[
         EventService, 
         EventRouteActivator,
-        { provide: TOASTR_TOKEN, useValue: toastr}, 
+        { provide: TOASTR_TOKEN, useValue: toastr},
+        { provide: JQUERY_TOKEN, useValue: jQuery},  
         { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState},
         EventListResolver,
         AuthService
